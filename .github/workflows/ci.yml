@@ -23,8 +23,11 @@ jobs:
       - name: Wait 10 seconds for container to be ready
         run: sleep 10
 
-      - name: Testing all endpoints
-        run: docker exec -it doordash-copycat-container pytest tests/
+      - name: Install pytest and httpx
+        run: docker exec doordash-copycat-container pip install pytest httpx
+
+      - name: Run tests
+        run: docker exec doordash-copycat-container pytest tests/
       
       - name: Stop Docker container
         run: docker stop doordash-copycat-container
