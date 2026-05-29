@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
 
       - name: Build Docker image
         run: docker build -t doordash-copycat:latest .
@@ -19,6 +19,9 @@ jobs:
 
       - name: Get list of running containers
         run: docker ps
+
+      - name: Wait 10 seconds for container to be ready
+        run: sleep 10
 
       - name: Testing / endpoint
         run: curl -X GET http://localhost:8080/ || exit 1
