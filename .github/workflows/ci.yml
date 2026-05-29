@@ -15,7 +15,7 @@ jobs:
         run: docker build -t doordash-copycat:latest .
 
       - name: Run Docker container
-        run: docker run --name doordash-copycat-container -d -p 8080:8090 doordash-copycat:latest
+        run: docker run --name doordash-copycat-container -d -p 8080:8080 doordash-copycat:latest
 
       - name: Get list of running containers
         run: docker ps
