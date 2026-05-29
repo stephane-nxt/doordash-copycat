@@ -17,6 +17,9 @@ jobs:
       - name: Run Docker container
         run: docker run --name doordash-copycat-container -d -p 8080:8090 doordash-copycat:latest
 
+      - name: Get list of running containers
+        run: docker ps
+
       - name: Testing / endpoint
         run: curl -X GET http://localhost:8080/ || exit 1
       
