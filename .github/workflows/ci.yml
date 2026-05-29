@@ -26,8 +26,8 @@ jobs:
       - name: Testing / endpoint
         run: curl -X GET http://localhost:8080/ || exit 1
       
-      - name: Testing /health endpoint
-        run: curl -X GET http://localhost:8080/health || exit 1
+      - name: Testing /status endpoint
+        run: curl -X GET http://localhost:8080/status/ || exit 1
       
       - name: Stop Docker container
         run: docker stop doordash-copycat-container
