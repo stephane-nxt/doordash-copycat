@@ -23,11 +23,8 @@ jobs:
       - name: Wait 10 seconds for container to be ready
         run: sleep 10
 
-      - name: Testing / endpoint
-        run: curl -X GET http://localhost:8080/ || exit 1
-      
-      - name: Testing /status endpoint
-        run: curl -X GET http://localhost:8080/status/ || exit 1
+      - name: Testing all endpoints
+        run: docker exec -it doordash-copycat-container pytest tests/
       
       - name: Stop Docker container
         run: docker stop doordash-copycat-container
